@@ -1,0 +1,15 @@
+### GET ALL THE CONTACTS
+GET http://localhost:8080/children
+
+### POST A NEW CHILD (CREATE)
+POST http://localhost:8080/children
+Content-Type: application/json
+
+{
+    "firstName": "Ema",
+    "lastName": "Vergara",
+    "birthday": "2020-12-01",
+    "class": "CTR5",
+    "favoriteTreat": "cookie",
+    "talksGiven": 4
+}

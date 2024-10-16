@@ -1,0 +1,83 @@
+[
+    {
+        "firstName": "Liam",
+        "lastName": "Smith",
+        "birthday": "2023-12-01",
+        "class": "Sunbeams",
+        "favoriteTreat": "gummy",
+        "talksGiven": 2
+        
+    },
+    {
+        "firstName": "Olivia",
+        "lastName": "Johnson",
+        "birthday": "2023-05-01",
+        "class": "Sunbeams",
+        "favoriteTreat": "candy",
+        "talksGiven": 3
+    },
+    {
+        "firstName": "Noah",
+        "lastName": "Williams",
+        "birthday": "2020-12-01",
+        "class": "CTR5",
+        "favoriteTreat": "cookie",
+        "talksGiven": 1
+    },
+    {
+        "firstName": "Emma",
+        "lastName": "Brown",
+        "birthday": "2013-12-01",
+        "class": "VAL10",
+        "favoriteTreat": "dounut",
+        "talksGiven": 4
+    },
+    {
+        "firstName": "Oliver",
+        "lastName": "Jones",
+        "birthday": "2018-12-01",
+        "class": "CTR6",
+        "favoriteTreat": "cookie",
+        "talksGiven": 0
+    },
+    {
+        "firstName": "Ava",
+        "lastName": "Garcia",
+        "birthday": "2014-12-01",
+        "class": "VAL9",
+        "favoriteTreat": "cheese",
+        "talksGiven": 2
+    },
+    {
+        "firstName": "Elijah",
+        "lastName": "Martinez",
+        "birthday": "2018-12-01",
+        "class": "VAL10",
+        "favoriteTreat": "chocolate",
+        "talksGiven": 5
+    },
+    {
+        "firstName": "Charlotte",
+        "lastName": "Davis",
+        "birthday": "2016-12-01",
+        "class": "CTR7",
+        "favoriteTreat": "chocolate",
+        "talksGiven": 2
+    },
+    {
+        "firstName": "James",
+        "lastName": "Rodriguez",
+        "birthday": "2018-12-01",
+        "class": "CTR6",
+        "favoriteTreat": "candy",
+        "talksGiven": 3
+    },
+    {
+        "firstName": "Sophia",
+        "lastName": "Martinez",
+        "birthday": "2017-12-01",
+        "class": "VAL8",
+        "favoriteTreat": "chocolate",
+        "talksGiven": 1
+    }
+]
