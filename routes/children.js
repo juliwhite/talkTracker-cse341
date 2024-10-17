@@ -1,10 +1,33 @@
 // routes/children.js
 const express = require('express');
 const router = express.Router();
-const Child = require('../models/child');
+const childController = require('../controllers/childController'); // Import the controller
+
+// GET route to retrieve all children
+router.get('/', childController.getAllChildren);
+
+//POST route to create a new child
+router.post('/', childController.createChild);
+
+module.exports = router;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*const Child = require('../models/child');
 
 // GET all children
-router.get('/', async (req, res) => {
+//router.get('/', async (req, res) => {
     console.log('GET /api/children endpoint hit');
     try {
         const children = await Child.find();
@@ -34,4 +57,4 @@ router.post('/', async (req, res) => {
     }
 });
 
-module.exports = router;
+module.exports = router;*/
