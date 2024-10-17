@@ -11,7 +11,7 @@ connectDB();
 app.use(express.json()); // Parse incoming JSON
 
 // Routes
-app.use('/children', childrenRoutes); // Use children routes
+app.use('/', childrenRoutes); // Use children routes
 
 // Start the server
 const PORT = process.env.PORT || 8080;

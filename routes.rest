@@ -13,3 +13,23 @@ Content-Type: application/json
     "favoriteTreat": "cookie",
     "talksGiven": 4
 }
+
+### GET one single child
+GET http://localhost:8080/children/67114094ccb13c9116a15c8a
+
+### PUT update one single child
+PUT http://localhost:8080/children/67114094ccb13c9116a15c8a
+Content-Type: application/json
+
+{
+    "firstName": "Emanuel",
+    "lastName": "Vergara",
+    "birthday": "2020-12-01",
+    "class": "CTR5",
+    "favoriteTreat": "cookie",
+    "talksGiven": 4
+}
+
+### DELETE a child by id
+DELETE http://localhost:8080/children/67114094ccb13c9116a15c8a
+Content-Type: application/json

@@ -4,10 +4,19 @@ const router = express.Router();
 const childController = require('../controllers/childController'); // Import the controller
 
 // GET route to retrieve all children
-router.get('/', childController.getAllChildren);
+router.get('/children', childController.getAllChildren);
 
 //POST route to create a new child
-router.post('/', childController.createChild);
+router.post('/children', childController.createChild);
+
+// Get a single child.
+router.get('/children/:id', childController.getSingleChild)
+
+// PUT update a single child
+router.put('/children/:id', childController.updateChild)
+
+// DELETE a child data by id
+router.delete('/children/:id', childController.deleteChild)
 
 module.exports = router;
 
