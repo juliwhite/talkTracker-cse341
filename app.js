@@ -13,10 +13,6 @@ connectDB();
 app.use(cors()); // Enable CORS
 app.use(express.json()); // Parse incoming JSON
 
-app.use(cors({
-    origin: 'http://localhost:8080', // Replace with your frontend URL
- }));
-
 // Serve Swagger UI
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerFile));
 
