@@ -1,5 +1,7 @@
 const express = require('express');
 const connectDB = require('./config/database'); // Import the database connection
+const swaggerUi = require('swagger-ui-express');
+const swaggerFile = require('./swagger-output.json'); // Generated Swagger file
 const childrenRoutes = require('./routes/children'); // Import your routes
 
 const app = express();
@@ -9,6 +11,9 @@ connectDB();
 
 // Middleware
 app.use(express.json()); // Parse incoming JSON
+
+// Serve Swagger UI
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerFile));
 
 // Routes
 app.use('/', childrenRoutes); // Use children routes

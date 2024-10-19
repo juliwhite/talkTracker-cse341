@@ -25,7 +25,7 @@ const createChild = async (req, res) => {
       const newChild = await child.save(); // Save the new child to the database
       res.status(201).json(newChild); // Respond with the created child
     } catch (err) {
-      res.status(500).json({ message: 'Error creating child', error: err });
+      res.status(400).json({ message: 'Error creating child', error: err });
     }
 };
 
@@ -38,7 +38,7 @@ const getSingleChild = async (req, res, next) => {
     }
     res.status(200).json(child); // respond with the child data
   } catch (err) {
-    rest.status(500).json({ message: 'Error fectching child', error: err });
+    res.status(500).json({ message: 'Error fectching child', error: err });
   }
 };
 
