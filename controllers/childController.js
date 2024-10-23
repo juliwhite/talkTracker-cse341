@@ -38,7 +38,7 @@ const getSingleChild = async (req, res, next) => {
     }
     res.status(200).json(child); // respond with the child data
   } catch (err) {
-    res.status(500).json({ message: 'Error fectching child', error: err });
+    res.status(500).json({ message: 'Error fetching child', error: err });
   }
 };
 

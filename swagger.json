@@ -1,0 +1,199 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "Talk Tracker API",
+      "description": "API for managing children talks in Primary.",
+      "version": "1.0.0"
+    },
+    "servers": [
+      {
+        "url": "http://localhost:8080"
+      }
+    ],
+    "paths": {
+      "/children": {
+        "get": {
+          "summary": "Get all children",
+          "responses": {
+            "200": {
+              "description": "OK"
+            },
+            "500": {
+              "description": "Internal Server Error"
+            }
+          }
+        },
+        "post": {
+          "summary": "Create a new child",
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "firstName": {
+                      "type": "string",
+                      "example": "Ana"
+                    },
+                    "lastName": {
+                      "type": "string",
+                      "example": "Smith"
+                    },
+                    "birthday": {
+                      "type": "string",
+                      "format": "date",
+                      "example": "2015-05-05"
+                    },
+                    "class": {
+                      "type": "string",
+                      "example": "Sunbeam"
+                    },
+                    "favoriteTreat": {
+                      "type": "string",
+                      "example": "chocolate"
+                    },
+                    "talksGiven": {
+                      "type": "integer",
+                      "example": 4
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "201": {
+              "description": "Created"
+            },
+            "400": {
+              "description": "Bad Request"
+            }
+          }
+        }
+      },
+      "/children/{id}": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "get": {
+          "summary": "Get child by ID",
+          "responses": {
+            "200": {
+              "description": "OK"
+            },
+            "404": {
+              "description": "Not Found"
+            },
+            "500": {
+              "description": "Internal Server Error"
+            }
+          }
+        },
+        "put": {
+          "summary": "Update child by ID",
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "firstName": {
+                      "type": "string",
+                      "example": "Ana"
+                    },
+                    "lastName": {
+                      "type": "string",
+                      "example": "Smith"
+                    },
+                    "birthday": {
+                      "type": "string",
+                      "format": "date",
+                      "example": "2015-05-05"
+                    },
+                    "class": {
+                      "type": "string",
+                      "example": "Sunbeam"
+                    },
+                    "favoriteTreat": {
+                      "type": "string",
+                      "example": "chocolate"
+                    },
+                    "talksGiven": {
+                      "type": "integer",
+                      "example": 5
+                    }
+                  },
+                  "required": ["firstName", "lastName", "birthday"]
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Child updated successfully"
+            },
+            "404": {
+              "description": "Not Found"
+            },
+            "500": {
+              "description": "Internal Server Error"
+            }
+          }
+        },
+        "delete": {
+          "summary": "Delete child by ID",
+          "responses": {
+            "200": {
+              "description": "OK"
+            },
+            "404": {
+              "description": "Not Found"
+            },
+            "500": {
+              "description": "Internal Server Error"
+            }
+          }
+        }
+      }
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

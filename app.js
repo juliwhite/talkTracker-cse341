@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const connectDB = require('./config/database'); // Import the database connection
 const swaggerUi = require('swagger-ui-express');
-const swaggerFile = require('./swagger-output.json'); // Generated Swagger file
+const swaggerFile = require('./swagger.json'); // Generated Swagger file
 const childrenRoutes = require('./routes/children'); // Import your routes
 
 const app = express();
