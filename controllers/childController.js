@@ -59,7 +59,7 @@ const updateChild = async (req, res) => {
     if (!updatedChild) {
       return res.status(404).json({ message: 'Child not found' }); 
     }
-    res.status(200).json(updatedChild); // responds with the updated child data.
+    res.status(200).json({ message: 'Child updated successfully!'}); // responds with the updated child data.
   } catch (err) {
     res.status(500).json({ message: 'Error updating child.', error: err});
   }

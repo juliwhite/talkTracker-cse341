@@ -4,10 +4,11 @@ const { body, param, validationResult } = require('express-validator');
 const validateChildCreation = [
   body('firstName').isString().notEmpty().withMessage('First name is required'),
   body('lastName').isString().notEmpty().withMessage('Last name is required'),
-  body('birthday').isISO8601().withMessage('Birthday must be a valid date'),
+  body('birthday').isString().withMessage('Birthday must be a valid date'),
   body('class').isString().notEmpty().withMessage('Class is required'),
   body('favoriteTreat').isString().notEmpty().withMessage('Favorite treat is required'),
-  body('talksGiven').isInt({ min: 0 }).withMessage('Talks given must be a non-negative integer'),
+  body('talksGiven').isInt({ min: 0 }).withMessage('Talks given must be a non-negative integer')
+    .not().isString().withMessage('Talks given must be a number'),
   (req, res, next) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -21,7 +22,7 @@ const validateChildCreation = [
 const validateChildUpdate = [
     body('firstName').isString().optional(),
     body('lastName').isString().optional(),
-    body('birthday').isISO8601().optional().toDate(),
+    body('birthday').isString().optional(),
     body('class').isString().optional(),
     body('favoriteTreat').isString().optional(),
     body('talksGiven').isNumeric().optional(),
