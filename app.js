@@ -29,7 +29,7 @@ app.use(express.json()); // Parse incoming JSON
 
 // Session middleware (required for persistent login sessions)
 app.use(session({
-  secret: process.env.SESSION_SECRET || 'secret', // Use an environment variable for security
+  secret: 'medody' || 'secret', // Use an environment variable for security
   resave: false,
   saveUninitialized: false
 }));
