@@ -1,4 +1,5 @@
 const express = require('express');
+require('dotenv').config();
 const session = require('express-session'); // Import express-session
 const { ApolloServer } = require('apollo-server-express');
 const cors = require('cors');
