@@ -1,15 +1,23 @@
 const express = require('express');
+const session = require('express-session'); // Import express-session
 const { ApolloServer } = require('apollo-server-express');
 const cors = require('cors');
 const connectDB = require('./config/database'); // Import the database connection
 const swaggerUi = require('swagger-ui-express');
 const swaggerFile = require('./swagger.json'); // Generated Swagger file
 const childrenRoutes = require('./routes/children'); // Import your routes
+const authRoutes = require('./routes/auth');
 const typeDefs = require('./graphql/typeDefs');
 const resolvers = require('./graphql/resolvers');
+const passport = require('passport'); // Import passport
+require('./config/passport')(passport)  // Passport config file
+const dashboardRoutes = require('./routes/dashboard');
 
 
 const app = express();
+
+// Set the view engine to EJS
+app.set('view engine', 'ejs');
 
 // Connect to MongoDB
 connectDB();
@@ -18,11 +26,32 @@ connectDB();
 app.use(cors()); // Enable CORS
 app.use(express.json()); // Parse incoming JSON
 
+// Session middleware (required for persistent login sessions)
+app.use(session({
+  secret: process.env.SESSION_SECRET || 'secret', // Use an environment variable for security
+  resave: false,
+  saveUninitialized: false
+}));
+
+// Initialize Passport and session
+app.use(passport.initialize());
+app.use(passport.session());
+
 // Serve Swagger UI
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerFile));
 
-// Routes
+// ROUTES
 app.use('/', childrenRoutes); // Use children routes
+
+// Use the authentication routes
+app.use('/auth', authRoutes);
+
+// Home route
+app.get('/', (req, res) => {
+  res.render("home")
+})
+
+app.use('/dashboard', dashboardRoutes);
 
 
 // Start the server
