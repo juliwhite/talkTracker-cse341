@@ -7,8 +7,8 @@ function ensureAuthenticated(req, res, next) {
     if (req.user) {
       return next();
     }
-    
-    res.status(401).json({ message: 'Unauthorized access. Please log in.' });
+    res.redirect('/auth/google');
+    //res.status(401).json({ message: 'Unauthorized access. Please log in.' });
   }
   
   module.exports = { ensureAuthenticated };
