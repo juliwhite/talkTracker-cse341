@@ -23,8 +23,15 @@ app.set('view engine', 'ejs');
 // Connect to MongoDB
 connectDB();
 
+const corsOptions = {
+  origin: ['https://talktracker.onrender.com'], // Add your trusted origins here
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+};
+
+
 // Middleware
-app.use(cors()); // Enable CORS
+app.use(cors(corsOptions)); // Enable CORS
 app.use(express.json()); // Parse incoming JSON
 
 // Session middleware (required for persistent login sessions)
@@ -45,7 +52,7 @@ app.use(passport.session());
 // Serve Swagger UI
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerFile, {
   swaggerOptions: {
-    oauth2RedirectUrl: process.env.GOOGLE_CALLBACK_URL,
+    oauth2RedirectUrl: process.env.GOOGLE_CALLBACK_URL || 'https://talktracker.onrender.com/api-docs/oauth2-redirect.html',
     //oauth2RedirectUrl: "https://talktracker.onrender.com/api-docs/oauth2-redirect.html",
     //initOAuth: {
     oauth: {
