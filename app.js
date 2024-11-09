@@ -43,16 +43,11 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerFile, {
   swaggerOptions: {
     oauth2RedirectUrl: process.env.GOOGLE_CALLBACK_URL,
     //initOAuth: {
-    initOauth: {
+    oauth: {
       clientId: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
       scopes: ["openid", "profile", "email"],
       useBasicAuthenticationWithAccessCodeGrant: true
-    },
-    requestInterceptor: (req) => {
-      req.headers['client_id'] = process.env.GOOGLE_CLIENT_ID;
-      req.headers['client_secret'] = process.env.GOOGLE_CLIENT_SECRET;
-      return req;
     }
   }
 }));
