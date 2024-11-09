@@ -48,7 +48,7 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerFile, {
       clientId: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
       scopes: ["openid", "profile", "email"],
-      useBasicAuthenticationWithAccessCodeGrant: true
+      //useBasicAuthenticationWithAccessCodeGrant: true
     }
   }
 }));
