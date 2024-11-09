@@ -8,7 +8,7 @@ module.exports = function(passport){
         clientID: process.env.GOOGLE_CLIENT_ID,
         clientSecret: process.env.GOOGLE_CLIENT_SECRET,
         callbackURL: process.env.GOOGLE_CALLBACK_URL || '/auth/google/callback',
-        prompt: 'select_account'
+        prompt: 'consent'  // forcd consent screen every time.
     },
     async (accessToken, refreshToken, profile, done) => {
         // TEST
@@ -35,7 +35,8 @@ module.exports = function(passport){
                 done(null, user)
             }
         } catch(err) {
-            console.error(error)
+            console.error(erro);
+            done(err, null);
         }
 
     }))

@@ -9,12 +9,19 @@ router.get('/login', (req, res) => {
 
 // auth logout
 router.get('/logout', (req,res) => {
-    res.send('logging out');
+    //res.send('logging out');
+    req.logout((error) => {
+        if (err) return next(err);
+        req.session.destroy(() => {
+            res.redirect('/');  // Redirect to home or login page.
+        })
+    })
 })
 
 // auth with google
 router.get('/google', passport.authenticate('google', {
-    scope: ['profile', 'email']  // Request profile and email
+    scope: ['profile', 'email'],  // Request profile and email
+    prompt: 'consent'
 }))
 
 // Google OAuth callback

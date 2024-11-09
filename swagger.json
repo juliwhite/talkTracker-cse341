@@ -10,10 +10,38 @@
         "url": "http://localhost:8080"
       }
     ],
+    "components": {
+    "securitySchemes": {
+      "OAuth2": {
+        "type": "oauth2",
+        "flows": {
+          "authorizationCode": {
+            "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+            "tokenUrl": "https://oauth2.googleapis.com/token",
+            "scopes": {
+              "openid": "Access your TalkTracker account",
+              "profile": "View your basic profile information",
+              "email": "View your email address"
+            }
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "OAuth2": ["openid", "profile", "email"]
+    }
+  ],
     "paths": {
       "/children": {
         "get": {
           "summary": "Get all children",
+          "security": [
+          {
+            "OAuth2": ["openid", "profile", "email"]
+          }
+        ],
           "responses": {
             "200": {
               "description": "OK"
@@ -25,6 +53,11 @@
         },
         "post": {
           "summary": "Create a new child",
+          "security": [
+            {
+             "OAuth2": ["openid", "profile", "email"]
+            }
+          ],
           "requestBody": {
             "required": true,
             "content": {
@@ -85,6 +118,11 @@
         ],
         "get": {
           "summary": "Get child by ID",
+          "security": [
+            {
+              "OAuth2": ["openid", "profile", "email"]
+            }
+          ],
           "responses": {
             "200": {
               "description": "OK"
@@ -99,6 +137,11 @@
         },
         "put": {
           "summary": "Update child by ID",
+          "security": [
+            {
+              "OAuth2": ["openid", "profile", "email"]
+            }
+          ],
           "requestBody": {
             "required": true,
             "content": {
@@ -151,6 +194,11 @@
         },
         "delete": {
           "summary": "Delete child by ID",
+          "security": [
+            {
+              "OAuth2": ["openid", "profile", "email"]
+            }
+          ],
           "responses": {
             "200": {
               "description": "OK"
