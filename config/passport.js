@@ -1,4 +1,4 @@
-//const passport = require('passport') // to handled authentication
+const passport = require('passport') // to handled authentication
 const GoogleStrategy = require('passport-google-oauth20').Strategy  // allow user to sign in with their google account. 
 const mongoose = require('mongoose') // to interact with mondoDB database
 const User = require('../models/User')  // a MondoDB model for storing user data in database.
@@ -8,6 +8,7 @@ module.exports = function(passport){
         clientID: process.env.GOOGLE_CLIENT_ID,
         clientSecret: process.env.GOOGLE_CLIENT_SECRET,
         callbackURL: process.env.GOOGLE_CALLBACK_URL || '/auth/google/callback',
+        scope: ['profile', 'email'],
         prompt: 'consent'  // forcd consent screen every time.
     },
     async (accessToken, refreshToken, profile, done) => {
