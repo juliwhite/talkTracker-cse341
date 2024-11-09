@@ -23,8 +23,16 @@ app.set('view engine', 'ejs');
 // Connect to MongoDB
 connectDB();
 
+// Configure CORS for local and production servers
+const corsOptions = {
+  origin: ['http://localhost:8080', 'https://talktracker.onrender.com'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+};
+
+
 // Middleware
-app.use(cors()); // Enable CORS
+app.use(cors(corsOptions)); // Enable CORS
 app.use(express.json()); // Parse incoming JSON
 
 // Session middleware (required for persistent login sessions)
