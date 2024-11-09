@@ -31,7 +31,11 @@ app.use(express.json()); // Parse incoming JSON
 app.use(session({
   secret: 'medody' || 'secret', // Use an environment variable for security
   resave: false,
-  saveUninitialized: false
+  saveUninitialized: false,
+  cookie: { secure: process.env.NODE_ENV === 'production',
+    httpOnly: true, // For security, ensure it's not accessible via JavaScript
+    maxAge: 3600000 // Cookie expiry time (e.g., 1 hour)
+   } // Secure cookies in production
 }));
 
 // Initialize Passport and session
