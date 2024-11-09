@@ -42,6 +42,7 @@ app.use(passport.session());
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerFile, {
   swaggerOptions: {
     oauth2RedirectUrl: process.env.GOOGLE_CALLBACK_URL,
+    //oauth2RedirectUrl: "https://talktracker.onrender.com/api-docs/oauth2-redirect.html",
     //initOAuth: {
     oauth: {
       clientId: process.env.GOOGLE_CLIENT_ID,

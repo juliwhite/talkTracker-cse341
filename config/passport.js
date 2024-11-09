@@ -35,7 +35,7 @@ module.exports = function(passport){
                 done(null, user)
             }
         } catch(err) {
-            console.error(erro);
+            console.error(err);
             done(err, null);
         }
 
