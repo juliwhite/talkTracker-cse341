@@ -7,7 +7,7 @@
     },
     "servers": [
       {
-        "url": "https://talktracker.onrender.com",
+        "url": "https://talktracker.onrender.com/auth/google/callback",
         "description": "Production server"
       }
     ],
