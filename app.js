@@ -24,7 +24,7 @@ app.set('view engine', 'ejs');
 connectDB();
 
 const corsOptions = {
-  origin: 'https://talktracker.onrender.com', // Add your trusted origins here
+  origin: ['https://talktracker.onrender.com', 'http://localhost:8080/appi-docs/oauth2-redirect.html'], // Add your trusted origins here
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
 };
@@ -39,10 +39,10 @@ app.use(session({
   secret: 'medody' || 'secret', // Use an environment variable for security
   resave: false,
   saveUninitialized: false,
-  cookie: { secure: process.env.NODE_ENV === 'production',
-    httpOnly: true, // For security, ensure it's not accessible via JavaScript
-    maxAge: 3600000 // Cookie expiry time (e.g., 1 hour)
-   } // Secure cookies in production
+  //cookie: { secure: process.env.NODE_ENV === 'production',
+    //httpOnly: true, // For security, ensure it's not accessible via JavaScript
+    //maxAge: 3600000 // Cookie expiry time (e.g., 1 hour)
+   //} // Secure cookies in production
 }));
 
 // Initialize Passport and session
@@ -52,7 +52,7 @@ app.use(passport.session());
 // Serve Swagger UI
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerFile, {
   swaggerOptions: {
-    oauth2RedirectUrl: process.env.GOOGLE_CALLBACK_URL,
+    oauth2RedirectUrl: process.env.GOOGLE_CALLBACK_URL || "http://localhost:8080/auth/google/callback",
     //oauth2RedirectUrl: "https://talktracker.onrender.com/api-docs/oauth2-redirect.html",
     //initOAuth: {
     oauth: {

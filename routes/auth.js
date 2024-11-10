@@ -28,7 +28,9 @@ router.get('/google', passport.authenticate('google', {
 router.get('/google/callback', 
     passport.authenticate('google', { failureRedirect: '/login' }),
     (req, res) => {
-        res.redirect('/children'); // Redirect to a protected route on successful login
+        
+    res.redirect('/dashboard'); // Redirect the user to Swagger UI or the page they were trying to access
+        //res.redirect('/children'); // Redirect to a protected route on successful login
     }
 );
 

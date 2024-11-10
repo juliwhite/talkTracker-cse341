@@ -4,11 +4,11 @@ const passport = require('passport');
 
 // middleware/auth.js
 function ensureAuthenticated(req, res, next) {
-    if (req.user) {
+    if (req.isAuthenticated()) {
       return next();
+    } else {
+      res.status(401).send('Unauthorized');
     }
-    //res.redirect('/auth/google');
-    res.status(401).json({ message: 'Unauthorized access. Please log in.' });
   }
   
   module.exports = { ensureAuthenticated };

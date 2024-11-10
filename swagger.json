@@ -9,6 +9,10 @@
       {
         "url": "https://talktracker.onrender.com/auth/google/callback",
         "description": "Production server"
+      },
+      {
+        "url": "http://localhost:8080",
+        "description": "Local server"
       }
     ],
     "components": {
